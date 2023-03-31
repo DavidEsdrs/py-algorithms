@@ -2,16 +2,16 @@ import random
 
 # List comprehension
 any_numbers = random.sample(range(1, 1000), 50)
-lista_ordenada_5 = [1, 2, 3, 4, 5]
-lista_ordenada_50 = list(range(1, 51))
-lista_inversa_5 = [5, 4, 3, 2, 1]
-lista_inversa_50 = list(reversed(range(1, 51)))
-lista_iguais_5 = [1, 1, 1, 1, 1]
-lista_iguais_50 = [1] * 50
-lista_dupla_5 = [1, 2, 2, 3, 3]
-lista_dupla_50 = [i // 2 for i in range(1, 101)]
-lista_repetida_5 = [1, 2, 1, 2, 1]
-lista_repetida_50 = [i % 5 for i in range(1, 51)]
+ordered_list_5 = [1, 2, 3, 4, 5]
+ordered_list_50 = list(range(1, 51))
+reversed_list_5 = [5, 4, 3, 2, 1]
+reversed_list_50 = list(reversed(range(1, 51)))
+repeated_items_5 = [1, 1, 1, 1, 1]
+repeated_items_50 = [1] * 50
+double_repeated_items_5 = [1, 2, 2, 3, 3]
+double_repeated_items_50 = [i // 2 for i in range(1, 101)]
+diff_repeated_5 = [1, 2, 1, 2, 1]
+diff_repeated_50 = [i % 5 for i in range(1, 51)]
 odd_numbers = lambda n: [x for x in n if x % 2 != 0]
 square = lambda n: [x ** 2 for x in n]
 half = lambda n: [x // 2 for x in n]
