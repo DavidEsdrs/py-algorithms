@@ -38,8 +38,21 @@ def bubble_sort(list_to_sort):
             if list_to_sort[i] > list_to_sort[i + 1]:
                 list_to_sort[i], list_to_sort[i + 1] = list_to_sort[i + 1], list_to_sort[i]
 
+# Insertion sort
+# O(n^2)
+def insertion_sort(list_to_sort):
+    n = len(list_to_sort)
+    for i in range(1, n):
+        key = list_to_sort[i]
+        j = i - 1
+        while j >= 0 and list_to_sort[j] > key:
+            list_to_sort[j + 1] = list_to_sort[j]
+            j = j - 1
+        list_to_sort[j + 1] = key
+
+
 if __name__ == '__main__':
     list = any_numbers
     print(f"random: {list}")
-    bubble_sort(list)
-    print(F"sorted: {list}")
+    insertion_sort(list)
+    print(f"sorted: {list}")
