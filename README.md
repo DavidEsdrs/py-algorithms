@@ -16,8 +16,8 @@ This project was made in order to understand the main python concepts using sele
     * Example:
     ```py
     ordered_list = [1, 2, 3, 4, 5]
-    reversed_list = reversed(ordered_list)
+    reversed_list = list(reversed(ordered_list))
     square = lambda n: [x ** 2 for x in n]
-    squared_orderd_list = square(ordered_list) # [1, 4, 9, 16, 25]
+    squared_ordered_list = square(ordered_list) # [1, 4, 9, 16, 25]
     squared_reversed_list = square(reversed_list) # [25, 16, 9, 4, 1]
     ```
