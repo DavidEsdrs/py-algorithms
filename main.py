@@ -1,7 +1,7 @@
 import random
 
 # List comprehension
-any_numbers = random.sample(range(1, 1000), 50)
+any_numbers = random.sample(range(1, 1000), 10)
 ordered_list_5 = [1, 2, 3, 4, 5]
 ordered_list_50 = list(range(1, 51))
 reversed_list_5 = [5, 4, 3, 2, 1]
@@ -12,7 +12,7 @@ double_repeated_items_5 = [1, 2, 2, 3, 3]
 double_repeated_items_50 = [i // 2 for i in range(1, 101)]
 diff_repeated_5 = [1, 2, 1, 2, 1]
 diff_repeated_50 = [i % 5 for i in range(1, 51)]
-odd_numbers = lambda n: [x for x in n if x % 2 != 0]
+odd_numbers = lambda n: [x for x in range(1, n) if x % 2 != 0]
 square = lambda n: [x ** 2 for x in n]
 half = lambda n: [x // 2 for x in n]
 
@@ -50,9 +50,37 @@ def insertion_sort(list_to_sort):
             j = j - 1
         list_to_sort[j + 1] = key
 
+# Merge sort
+# O(n log n)
+def mergesort(list, start = 0, end = None):
+    if end is None:
+        end = len(list)
+    if end - start > 1:
+        mid = (end + start) // 2
+        mergesort(list, start, mid)
+        mergesort(list, mid, end)
+        merge(list, start, mid, end)
+
+def merge(list, start, mid, end):
+    left = list[start:mid]
+    right = list[mid:end]
+    topLeft, topRight = 0, 0
+    for k in range(start, end):
+        if topLeft >= len(left):
+            list[k] = right[topRight]
+            topRight += 1
+        elif topRight >= len(right):
+            list[k] = left[topLeft]
+            topLeft += 1
+        elif left[topLeft] < right[topRight]:
+            list[k] = left[topLeft]
+            topLeft += 1
+        else:
+            list[k] = right[topRight]
+            topRight += 1
 
 if __name__ == '__main__':
     list = any_numbers
     print(f"random: {list}")
-    insertion_sort(list)
+    mergesort(list)
     print(f"sorted: {list}")
